@@ -6,6 +6,12 @@ Studying strace and its possible application in debugging running nodejs program
 
 All calls are documented, so `man call_name` is available.
 
+## accept() ##
+
+It extracts the first connection request on the queue of pending connections
+for the listening socket, sockfd, creates a new connected socket, and returns
+a new file descriptor referring to that socket.
+
 ### access() ###
 
 Checks whether the calling process can access the file.
@@ -48,6 +54,10 @@ Returns a file descriptor, a small, nonnegative integer for use in subsequent sy
 ## read() ##
 
 Reads from a fd.
+
+## select() ##
+
+Waits for I/O to become available. For example it can wait for incoming connections.
 
 ### stat() ###
 
