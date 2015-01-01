@@ -1,12 +1,11 @@
 Studying strace and its possible application in debugging running nodejs programs
 =================================================================================
 
-
 ## System calls ##
 
 All calls are documented, so `man call_name` is available.
 
-## accept() ##
+### accept() ###
 
 It extracts the first connection request on the queue of pending connections
 for the listening socket, sockfd, creates a new connected socket, and returns
@@ -26,9 +25,13 @@ down has the effect of deallocating it. This is the way malloc allocates memory.
 
 (http://www.danielhall.me/tag/strace/)
 
-## arch_prctl() ##
+### arch_prctl() ###
 
 Set architecture-specific thread state.
+
+### clock_gettime() ###
+
+Gets the time.
 
 ### close() ###
 
@@ -38,28 +41,38 @@ Closes a file descriptor.
 
 Runs a program.
 
+### fcntl() ###
+
+Performs a command on a file descriptor.
+
 ### mmap() / munmap() ###
 
 Map or unmap files or devices into memory.
 
-## mprotect() ##
+### mprotect() ###
 
 Set protection on a region of memory.
+
+### poll() ###
+
+Waits for one of a set of file descriptors to become ready to perform I/O.
+**TODO** - what is the difference with select?
 
 ### open() ###
 
 Open and possibly create a file or device
 Returns a file descriptor, a small, nonnegative integer for use in subsequent system calls .
 
-## read() ##
+### read() ###
 
 Reads from a fd.
 
-## select() ##
+### select() ###
 
 Waits for I/O to become available. For example it can wait for incoming connections.
+**TODO** - what is the difference with poll?
 
-### stat() ###
+### stat(), fstat() ###
 
 Get file informations, similar to ls -l.
 
@@ -88,4 +101,3 @@ Closes the file descriptor.
 Links I've used to learn and write this.
 
  * http://chadfowler.com/blog/2014/01/26/the-magic-of-strace/
-
